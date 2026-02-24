@@ -1,0 +1,313 @@
+\documentclass[12pt]{article}
+
+% Required Packages
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper, margin=1in}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[numbers,super]{natbib} % For ACS citation style baseline
+
+
+
+\begin{document}
+
+% Custom Title Block (Replaces 
+\begin{center}
+    \Large \textbf{Experiment \#0: Computational Chemistry}
+\end{center}
+\vspace{0.5em}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+    \small
+    \textbf{Name:} Yuchen Shi \\
+    \textbf{Lab Partner:} Yizhe Dai, Siqi Li \\ 
+    \textbf{Section:} 001 
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+    \small \raggedleft
+    \textbf{Date Performed:} 2026-02-03 \\ 
+    \textbf{Date Submitted:} 2026-02-17 
+\end{minipage}
+\vspace{1.5em}
+
+\section*{Introduction}
+The chemical and physical properties of molecules can be explained and predicted by the dynamical states of quantum systems determined by solutions to the Schrödinger equation. \cite{lab_manual} However, due to the high degrees of freedom in many-body systems of interacting molecular nuclei and electrons, exact analytical solutions to the Schrödinger equation are unavailable, often restricted to small systems with single electron. Consequently, specialized computational algorithms must rely on systematic approximations to yield tractable solutions for complex molecules. The purpose of this experiment is to utilize the \textit{Spartan} \cite{spartan}  software suite to investigate molecular properties, optimized geometries, dipole moments, and vibrational normal modes for acetic acid and formaldehyde. 
+\\
+Within the framework of quantum mechanics, the foundational simplification in molecular quantum mechanics is the Born-Oppenheimer approximation. \cite{born1927quantentheorie} Because electrons have a significantly smaller mass than nuclei while experiencing forces of comparable magnitude, their velocities are vastly greater. This allows electronic and nuclear motions to be effectively decoupled adiabatically. It can be reasonably assumed that the electrons instantaneously adapt to a given nuclear configuration, allowing the electronic Schrödinger equation to be solved for fixed nuclear coordinates to map out a potential energy surface and tremendously simplify the computations. 
+\\
+To compute the electronic structure of target molecules, this experiment utilizes the Hartree-Fock \cite{hf1, hf2, hf3} (HF) method with 3-21G \cite{321G} molecular orbital basis set. HF theory is a variational approach that simplifies the many-electron problem by invoking the independent particle approximation, wherein electron-electron repulsion is treated only in an average way. And the 3-21G basis set uses a split-valence representation to model the molecular orbitals. Because the operator in the Hartree-Fock eigenvalue equation depends on its own eigenfunctions, the equations are inherently non-linear and must be solved iteratively using the self-consistent-field (SCF) method. In this experiment, these computational methods are applied to determine the optimized equilibrium geometries of the target molecules, allowing for the subsequent calculation and analysis of their electric dipole moments and infrared vibrational spectra. 
+
+\newpage
+
+\section*{Results}
+
+The optimized geometries of the two acetic acid conformers are presented in Figure 1. Table 1 summarizes their calculated parameters, including dihedral angles, strain energies, point groups, and dipole moments obtained by molecular mechanics (MMFF) and HF/3-21G optimizations. For the more stable conformer (Conformer 1), the detailed bond lengths and bond angles are recorded in Table 2 and Table 3 respectively.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{conformer1.png} 
+        \caption{Conformer-1}
+        \label{fig:conformer1}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{conformer2.png} 
+        \caption{Conformer-2}
+        \label{fig:conformer2}
+    \end{subfigure}
+    \caption{Optimized Conformers of Acetic Acid}
+    \label{fig:acetic_acid_conformers}
+\end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Calculated Parameters of Acetic Acid Conformers}
+    \vspace{0.5em}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Parameter} & \textbf{Conformer-1} & \textbf{Conformer-2} \\
+        \midrule
+        Dihedral angle (H-O-C=O) & $0.00^\circ$& $0.00^\circ$\\
+        Strain energy (kcal/mol) & -110.4824& -85.9140\\
+        Point group & $C_s$ & $C_s$ \\
+        Symmetry elements present & $E, \sigma$ & $E, \sigma$ \\
+        Conformation Eclipsed/staggered & Eclipsed & Eclipsed \\
+        Dipole moment (D) & 1.65& 4.97\\
+        Methyl group H-C-H angles ($^\circ$) & 108.63, 108.63, 110.61& 108.55, 108.55, 110.70\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:acetic_acid}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \caption{Bond Lengths for Acetic Acid (Conformer 1)}
+        \vspace{0.5em}
+        \begin{tabular}{lc}
+            \toprule
+            \textbf{Bonds} & \textbf{Bond length (\AA)} \\
+            \midrule
+            C=O  & 1.219 \\
+            C--C & 1.493 \\
+            C--H & 1.094 \\
+            C--O & 1.346 \\
+            O--H & 0.980 \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:bond_lengths}
+    \end{minipage}%
+    \hfill 
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \caption{Bond Angles for Acetic Acid (Conformer 1)}
+        \vspace{0.5em}
+        \begin{tabular}{lc}
+            \toprule
+            \textbf{Bonds} & \textbf{Bond angle ($^\circ$)} \\
+            \midrule
+            H--C--H & 108.63 / 110.61 \\
+            H--C--C & 109.82 \\
+            C--C=O  & 126.56 \\
+            O--C=O  & 121.02 \\
+            C--O--H & 104.05 \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:bond_angles}
+    \end{minipage}
+\end{table}
+
+\noindent
+For formaldehyde, the geometry optimization and IR spectrum calculations were performed at the HF/3-21G level. The optimized structure is shown in Figure 2, with a $C_{2v}$ symmetry and the optimized energy and molecular orbital energies are in Table 4. The visualized molecular orbital surfaces (LUMO+1, LUMO, HOMO, HOMO-1) are presented in Figure 3. The calculated infrared spectrum is displayed in Figure 4. Table 5 compares the calculated vibrational frequencies against experimentally observed values, and the atomic motions for these six normal modes are illustrated in Figure 5.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.35\linewidth, height=5cm]{formaldehyde_structure.png}
+    \caption{Optimized Structure of Formaldehyde}
+    \label{fig:formaldehyde_structure}
+\end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Calculated Parameters of Formaldehyde (HF/3-21G)}
+    \vspace{0.5em}
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Parameter} & \textbf{Value} \\
+        \midrule
+        Optimized energy (kcal/mol) & 0.2266\\
+        Calculated vibrational modes & 6 \\
+        LUMO energy (eV) & 4.01\\
+        HOMO energy (eV) & -11.78\\
+        HOMO-LUMO gap (eV) & 15.79\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:formaldehyde_params}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{LUMO+1.png} 
+        \caption{Visualization of LUMO+1}
+        \label{fig:mo_lumo1}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{LUMO.png} 
+        \caption{Visualization of LUMO}
+        \label{fig:mo_lumo}
+    \end{subfigure}
+    \vspace{1em} 
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{HOMO.png} 
+        \caption{Visualization of HOMO}
+        \label{fig:mo_homo}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{HOMO-1.png} 
+        \caption{Visualization of HOMO-1}
+        \label{fig:mo_homo1}
+    \end{subfigure}
+    \caption{Molecular Orbitals of LUMO+1, LUMO, HOMO, and HOMO-1}
+    \label{fig:formaldehyde_mo}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{formaldehyde_IR_touse.png}
+    \caption{Calculated Infrared Spectrum of Formaldehyde}
+    \label{fig:formaldehyde_ir_spec}
+\end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Experimental and Calculated Infrared Frequencies ($cm^{-1}$) of Formaldehyde}
+    \vspace{0.5em}
+    \begin{tabular}{clccc}
+        \toprule
+        \textbf{Symmetry} & \textbf{Description of the mode} & \textbf{Observed}  & \textbf{Calculated} & \textbf{Calculated (scaled 0.9)} \\
+        \midrule
+        $A_1$ & Symmetric $CH_2$ stretching & 2783 & 3162 & 2845.8 \\
+        $A_1$ & CO stretching & 1746 & 1915 & 1723.5 \\
+        $A_1$ & $CH_2$ scissoring & 1500 & 1693 & 1523.7 \\
+        $B_1$ & $CH_2$ asymmetric stretch & 2843 & 3233 & 2900.7 \\
+        $B_1$ & $CH_2$ rocking & 1249 & 1379 & 1241.1 \\
+        $B_2$ & Out of plane bend & 1167 & 1337 & 1203.3 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:formaldehyde_IR}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{vib1.jpg} 
+        \caption{Symmetric $\text{CH}_2$ stretching}
+        \label{fig:vib_sym_stretch}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[t]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{vib2.jpg} 
+        \caption{$\text{CO}$ stretching}
+        \label{fig:vib_co_stretch}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[t]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{vib3.jpg} 
+        \caption{$\text{CH}_2$ scissoring}
+        \label{fig:vib_scissoring}
+    \end{subfigure}
+    \vspace{1.5em} 
+    \begin{subfigure}[t]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{vib4.jpg} 
+        \caption{$\text{CH}_2$ asymmetric stretch}
+        \label{fig:vib_asym_stretch}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[t]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{vib5.jpg} 
+        \caption{$\text{CH}_2$ rocking}
+        \label{fig:vib_rocking}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[t]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, height=4.5cm]{vib6.jpg} 
+        \caption{Out of plane bend}
+        \label{fig:vib_oop_bend}
+    \end{subfigure}
+    \caption{Six Normal Vibrational Modes of Formaldehyde}
+    \label{fig:formaldehyde_vib_modes}
+\end{figure}
+
+\newpage
+
+\section*{Discussion}
+
+As presented in the results for acetic acid, both conformers have $C_{s}$ symmetry, with the carbonyl carbon, carbonyl oxygen, hydroxyl carbon, hydroxyl oxygen, methyl carbon, and one methyl hydrogen on the symmetric plane. When evaluating their relative stability, conformer 1 exhibits a lower strain energy (-110.4824 kcal/mol) than conformer 2 (-85.9140 kcal/mol), indicating conformer 1 as the more stable configuration. The reason for the stability is that conformer 1 minimizes electrostatic repulsion by opposing the bond dipoles of the C=O and O-H groups, whereas conformer 2 aligns them. Moreover, the orientation of the C=O bond and the in-plane methyl hydrogen is eclipsed in both conformers. The eclipsed conformation is favored because it can stabilize the hyperconjugation effects between the filled $\sigma_{C-H}$ orbital and the empty $\pi_{C=O}^{*}$ orbital. Furthermore, while the three H-C-H angles in the methyl group are not strictly equal due to conformational influences, the exact equivalence of two of these angles (108.63$^\circ$) is consistent with the existence of the single plane of symmetry within the molecule.
+
+Comparing the HF/3-21G calculated dipole moment of conformer 1 ($\mu=1.65$ D) to the experimental literature value ($\mu=1.70\pm0.03$ D \cite{lide2002handbook}), the calculation proves to be highly accurate with an error rate of merely 2.94\%. The difference in dipole moments between the two conformers (1.65 D and 4.97 D) originates directly from the relative spatial orientation of the polar C=O and O-H bonds. In conformer 1, the O-H bond is oriented away from the carbonyl oxygen, causing their respective bond dipole vectors to point in opposing directions and partially cancel each other out. Conversely, in conformer 2, the O-H bond points toward the carbonyl oxygen, aligning the bond dipoles such that they reinforce one another. The alignment generates a significantly larger net molecular dipole moment and increases the intramolecular electronic repulsion between the partially negative oxygen atoms, making the conformer 2 unstable.
+
+As for the formaldehyde molecule, a non-linear system containing $N=4$ atoms is expected to have $3N-6=6$ vibrational normal modes, which perfectly matches the six modes generated by the Spartan calculation. As summarized in Table 5, the raw calculated frequencies systematically overestimate the true harmonic frequencies and applying the standard 0.9 empirical correction factor brings the HF theory calculations into precise agreement with the experimentally observed values. Furthermore, the symmetry labels assigned to these modes perfectly characterize the visual animations in Figure 5. The $A_{1}$ modes are totally symmetric and remain invariant to operations, while the $B_{1}$ and $B_{2}$ modes behave anti-symmetrically.
+
+Finally, evaluating the molecular orbital surfaces (Figure 3) reveals different localizations of electron density. The HOMO-1 has a single nodal plane running through the molecule. The orbital has no additional node between the C and O nuclei, consistent with a $\pi$ bonding combination. The HOMO surface exhibits positive and negative lobes primarily localized on the non-bonding $p$-orbitals of the oxygen atom, with a nodal plane mapping through the nuclei. The LUMO exhibits $\pi^{*}$ anti-bonding character with a clear node situated explicitly between the carbon and oxygen atoms. The LUMO+1 has a nodal plane passing through the carbon–oxygen axis causes a phase change 
+from the large blue lobes on the sides to the red lobe at carbon. Meanwhile the plane containing C, O, and H also serves as a nodal plane, creating separation at oxygen where the wavefunction exhibits opposite phases. The difference among HOMO-1, HOMO, LUMO, and LUMO+1 surfaces shows the fundamental quantum mechanical trend that as the energy of the molecular orbital increases, the number of spatial nodes correspondingly increases, which leads to a decrease in the degree of bonding overlap of the electron wavefunction between atoms.
+
+
+% References section 
+% Must follow American Chemical Society (ACS) format. 
+\bibliographystyle{achemso} % Uses the ACS formatting style
+\bibliography{references} % Ensure you create a references.bib file in your directory
+
+\newpage
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth, height=20cm]{Pchem Lab notes 0.pdf}
+    \caption{Lab Notebook}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth, height=20cm]{Lab Computation.pdf}
+    \caption{Post-Lab Computation Notes}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth, height=20cm]{acetic acid_conformer_1.pdf}
+    \caption{HF/3-21G Calculation of Acetic Acid (Conformer 1)}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth, height=20cm]{formaldehyde.pdf}
+    \caption{HF/3-21G Calculation of Formaldehyde}
+    \label{fig:placeholder}
+\end{figure}
+
+\end{document}
