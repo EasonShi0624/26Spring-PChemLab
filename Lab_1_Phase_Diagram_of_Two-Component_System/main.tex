@@ -1,0 +1,286 @@
+\documentclass[12pt]{article}
+% Required Packages
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper, margin=1in}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[numbers,super]{natbib} % For ACS citation style baseline
+\usepackage{hyperref}
+\usepackage{fontawesome5} % for using icons
+\usepackage[dvipsnames]{xcolor}
+\usepackage{textcomp}
+\usepackage{pdfpages}
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{Lab \#1: Phase Diagram of Two-Component System}
+\end{center}
+\vspace{0.5em}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+    \small
+    \textbf{Name:} Yuchen Shi \\
+    \textbf{Lab Partner:} Yizhe Dai, Siqi Li \\ 
+    \textbf{Section:} 001
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+    \small \raggedleft
+    \textbf{Date Performed:} 2026-02-10 \\ 
+    \textbf{Date Submitted:} 2026-02-24 
+\end{minipage}
+\vspace{1.5em}
+
+\begin{abstract}
+The solid-liquid phase diagram of the naphthalene-biphenyl system was constructed using linear regression analysis on temperature-time cooling plots of pure and mixture of two-component system. Assuming ideal behavior, linear regression yielded pure melting points and enthalpies of fusion of $351.42\pm4.7$ K and $21.42\pm6.3$ kJ/mol for naphthalene; 341.26 K and 20.56 kJ/mol for biphenyl. The experimental eutectic point was located at $311.81\pm0.80$ K with a biphenyl mole fraction of $0.530 \pm 0.010$. These experimental values showed high agreement with literature values with relative errors ranging from 0.25\% to 12.67\%, and the eutectic composition deviating by only 1.79\%, validating the ideal solution model for this binary organic system.
+\end{abstract}
+
+
+\section*{Introduction}
+Binary solid–liquid phase diagrams are powerful tools in physical chemistry for illustrating the relationship between temperature and composition when two components are partially miscible in the liquid phase but completely immiscible in the solid state. From fundamental phase rules, the degree of freedom in a two-component system can be described by 
+
+\begin{equation}
+F=C-P+2
+\label{eq:vantHoff}
+\end{equation}
+
+where $F$ is the degree of freedom, $P$ is the phases in equilibrium and $C$ is the number of components.\cite{lab_manual} The system can then be distinguished by the value and possess different physical properties in different conditions.
+\\
+For an ideal binary system in which the enthalpy of fusion of each component is constant over the temperature range of interest and there is no solid solubility, the liquidus lines can be described by the equation
+
+\begin{equation}
+T = \frac{1}{\frac{1}{T_i^{\circ}} - \frac{R}{\Delta H_i} \ln x_i}
+\label{eq:vantHoff}
+\end{equation}
+
+where $T_i^{\circ}$ and $\Delta H_i$ are the melting point and molar enthalpy of fusion of pure component~$i$, $R$ is the gas constant and $x_i$ is the mole fraction of component~$i$ in the liquid phase.\cite{lab_manual} Near the pure component, Eq.~\ref{eq:vantHoff} predicts a linear relationship
+
+\begin{equation}
+\ln x_i = -\frac{\Delta H_i}{R}\left(\frac{1}{T}\right) + \frac{\Delta H_i}{R T_i^{\circ}},
+\end{equation}
+
+so plotting $\ln x_i$ versus $1/T$ will yield a straight line whose slope and intercept allow $\Delta H_i$ and $T_i^{\circ}$ to be extracted.
+
+When the two liquidus curves intersect, the system reaches a eutectic composition $x_E$ and temperature $T_E$; below this temperature, a liquid mixture of any composition solidifies into a mixture of the two pure solids.  The eutectic composition may be calculated from the theoretical relation
+
+\begin{equation}
+\ln x_{B,E} = \frac{\Delta H_B}{R}\left(\frac{1}{T_B^{\circ}} - \frac{1}{T_E}\right)
+\label{eq:eutectic}
+\end{equation}
+
+for component~$B$ where an analogous expression exists for component~$A$.\cite{lab_manual}
+
+In general, this experiment measured cooling curves of pure naphthalene (A), pure biphenyl (B) and three mixtures with different fractions of each component. From these data the melting points and heats of fusion of the pure substances, liquidus temperatures of the mixtures, and the eutectic temperature and composition were determined. The experimental findings were compared to literature values\cite{gallus2001binary}, and an ideal phase diagram was constructed for comparison.
+
+\section*{Experimental Method}
+
+\subsection*{Apparatus and Operation}
+
+A test tube was held by a clamp on a iron rode, immersed in water in a 600 mL beaker as water bath. The beaker was heated on a heat plate with temperature at 230 $^\circ C$ to keep boiling and providing stable heating environment. A Logger-Pro temperature probe was placed in the mixture in the test tube, with a sample frequency every 2 seconds with a total length of 2400 seconds. Sample naphthalene and biphenyl were transferred to the bottom of the test tube using steal spoon. During each run, the sample in the tube was first heated above its melting point till completely melted and raised in the air for cooling with temperature recording started. The temperature recording was stopped when (1) the slope remained stable for a long time, and (2) the sample in the test tube fully crystallized. The Logger Pro data was saved for later process and analysis.
+
+\subsection*{Materials and Compositions}
+
+Naphthalene and biphenyl were taken from reagent bottles in the fume hood, presumably pure. Five runs were performed with conditions:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Run & Mass of A (g) & Mass of B (g) & wt\% A & $X_A$ & $X_B$\\ \midrule
+A1 & 5.0017 & 0.0000 & 100 & 1.0000 & 0.0000 \\ 
+A2 & 5.0017 & 1.6717 & 74.9 & 0.7826 & 0.2174 \\ 
+A3 & 5.0017 & 4.1738 & 54.5 & 0.5904 & 0.4096 \\ 
+B1 & 0.0000 & 5.0013 & 0 & 0.0000 & 1.0000 \\ 
+B2 & 1.6706 & 5.0013 & 25.0 & 0.2867 & 0.7133\\ \bottomrule
+\end{tabular}
+\caption{Masses of naphthalene (A) and biphenyl (B) used in each run.  Mole fractions were calculated using $x_A = n_A/(n_A+n_B)$ and $x_B=1-x_A$ with molar masses 128.17~g~mol$^{-1}$ for naphthalene and 154.21~g~mol$^{-1}$ for biphenyl. Calculation details are available in the Appendix}
+\label{tab:composition}
+\end{table}
+
+\subsection*{Temperature Analysis}
+Temperature-time plots for each run were plotted using Numpy\cite{harris2020array}, Matplotlib\cite{Hunter2007}, and Pandas\cite{reback2020pandas} libraries in Python. The linear regression parameters were determined by SciPy\cite{2020SciPy} library automatically. 
+\\
+The data was processed to locate plateau regions where the temperature remains nearly constant during freezing and inflection points corresponding to the onset of solidification. For pure substances the plateau temperature was taken as the freezing point, which is equivalent to the melting point on warming. 
+\\
+For mixtures, three linear regression were applied to each cooling curve to identify the break temperatures between the liquid and freezing regimes. Manual segmentation windows were chosen based on the visual shape of the curves. The plateau temperature was assigned as the eutectic arrest temperature, and the break temperature as the liquidus temperature of that mixture. Cooling curves are shown in Figures~\ref{fig:A1}–\ref{fig:A3}.
+
+
+
+\subsection*{Determination of $\Delta H$ and $T_i^{\circ}$}
+
+For each run the liquidus temperature $T_{\mathrm{liq}}$ was converted to kelvin and paired with the mole fraction of the principal component.  For naphthalene runs (A1–A3) $\ln x_A$ was plotted against $1/T_{\mathrm{liq}}$; for biphenyl runs (B1–B2) $\ln x_B$ was plotted against $1/T_{\mathrm{liq}}$.  A linear regression provided the slope ($-\Delta H_i/R$) and intercept ($\Delta H_i/(R T_i^{\circ})$), from which the enthalpy of fusion $\Delta H_i$ and the melting point $T_i^{\circ}$ were calculated.  The results are summarized in Table~\ref{tab:thermo} with literature values obtained from the 2001's JChemEd paper by Gallus et al.\cite{gallus2001binary}
+
+\section*{Results and Data Analysis}
+
+\subsection*{Liquidus Fits}
+
+The linear regressions of $\ln x$ versus $1/T$ for both components are shown in Figure~\ref{fig:lnx}.  Each point corresponds to one experimental run.  The high coefficient of determination ($R^2=0.9205$) demonstrates that the data are well described by Equation 2.  For the biphenyl fits only two data points were available, so the line passes exactly through both points($R^2=1$).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.75\linewidth]{lnX_vs_invT.png}
+  \caption{Plot of $\ln x$ versus $1/T$ for naphthalene and biphenyl.  The straight lines were obtained from linear regression.  Uncertainties in the slopes were propagated to estimate uncertainties in $\Delta H_i$ and $T_i^{\circ}$.}
+  \label{fig:lnx}
+\end{figure}
+
+From the slopes and intercepts of these fits the following thermodynamic quantities were obtained.  Errors were calculated relative to the literature values using $\mathrm{percent\,error} = |\mathrm{lit} - \mathrm{exp}|/\mathrm{lit} \times 100$.  Because only two points were available for biphenyl, the statistical uncertainty in $\Delta H_B$ is not available.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\linewidth]{A1_halt_plot.png}
+  \caption{Cooling Curve of Pure Naphthalene}
+  \label{fig:A1}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\linewidth]{B1_halt_plot.png}
+  \caption{Cooling Curve of Pure Biphenyl}
+  \label{fig:B1}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\linewidth]{A2_manual_3seg_with_err.png}
+  \caption{Cooling Curve of Naphthalene-Biphenyl Mixture (Run A2)}
+  \label{fig:A2}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\linewidth]{B2_manual_3seg_with_err.png}
+  \caption{Cooling Curve of Naphthalene-Biphenyl Mixture (Run B2)}
+  \label{fig:B2}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\linewidth]{A3_manual_3seg_with_err.png}
+  \caption{Cooling Curve of Naphthalene-Biphenyl Mixture (Run A3)}
+  \label{fig:A3}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Quantity & Experimental value & Literature value \cite{gallus2001binary} & Percent error \\ \midrule
+$T_A^{\circ}$ (naphthalene) & $351.42\pm4.7$~K (78.27~\textdegree{}C) & 353.4~K & 0.56~\% \\ 
+$\Delta H_A$ & $21.42\pm6.3$~kJ~mol$^{-1}$ & 19.01~kJ~mol$^{-1}$ & 12.67~\% \\ 
+$T_B^{\circ}$ (biphenyl) & 341.3~K (68.11~\textdegree{}C) & 342.1~K & 0.25~\% \\ 
+$\Delta H_B$ & 20.56~kJ~mol$^{-1}$ & 18.57~kJ~mol$^{-1}$ & 10.73~\% \\ \bottomrule
+\end{tabular}
+\caption{Thermodynamic parameters computed from $\ln x$ vs. $1/T$ regression analysis, compared with literature values.}
+\label{tab:thermo}
+\end{table}
+
+The melting points determined from the plateau regions of the pure runs are slightly lower than the literature values, likely because some supercooling occurred before nucleation.  The heats of fusion are systematically overestimated by approximately 10\,\%, which may arise from uncertainties in determining the liquidus temperatures of the mixtures and from assuming constant heat of fusion over the temperature range.
+\subsection*{Eutectic Temperature and Composition}
+
+The eutectic temperatures of the three mixture runs were averaged to give $T_E = 311.81 \pm0.80\,\text{K}$.  Equation~\ref{eq:eutectic} was used with the literature values of $\Delta H_B$ and $T_B^{\circ}$ to calculate the mole fraction of biphenyl at the eutectic point:
+
+\begin{equation}
+\ln x_{B,E} = \frac{\Delta H_B}{R}\Bigl(\frac{1}{T_B^{\circ}} - \frac{1}{T_E}\Bigr) \; \Longrightarrow \; x_{B,E} = 0.5303\pm0.010.
+\end{equation}
+
+The literature eutectic composition for the naphthalene–biphenyl system is $x_{B,E}^{\mathrm{lit}} = 0.540$, so the experimental value differs by only 1.79\,\%.  The eutectic temperature obtained experimentally is within a few kelvin of literature reports.
+
+\subsection*{Phase Diagram}
+
+Figure~\ref{fig:phase} compares the ideal phase diagram calculated from Eq.~\ref{eq:vantHoff} using literature $\Delta H_i$ and $T_i^{\circ}$ values with the experimental liquidus and arrest temperatures.  The experimental points lie close to the ideal liquidus curves, and the eutectic point lies slightly below the intersection of the calculated curves.  The agreement is reasonable given the small number of data points and the potential for systematic errors.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\linewidth]{phase_diagram.png}
+  \caption{Ideal and experimental phase diagram for the naphthalene–biphenyl system.  Solid curves were calculated using Eq.~\ref{eq:vantHoff} and literature parameters \cite{gallus2001binary}; points are experimental liquidus and arrest temperatures.}
+  \label{fig:phase}
+\end{figure}
+
+\section*{Discussion}
+To fully address the thermodynamic principles governing this system, the phase rule ($F = C - P + 1$) can be systematically applied to the observed cooling curves. For a two-component system ($C=2$), when the sample is entirely molten ($P=1$), the system possesses two degrees of freedom ($F = 2 - 1 + 1 = 2$). When primary crystallization begins, such as solid biphenyl existing in equilibrium with the binary melt ($P=2$), the degrees of freedom reduce to one ($F = 2 - 2 + 1 = 1$). This loss of a degree of freedom, coupled with the exothermic release of the latent heat of fusion, visibly decreases the cooling rate, manifesting as a break on the cooling curve. However, this primary break does not occur for all compositions; a mixture at the exact eutectic composition transitions directly from a liquid to a three-phase equilibrium (solid A, solid B, and melt). With $P=3$, the system becomes invariant ($F = 2 - 3 + 1 = 0$), resulting in a constant temperature halt rather than a gradual break. A similar thermal halt is universally observed during the solidification of a pure, one-component melt ($C=1, P=2 \implies F = 1 - 2 + 1 = 0$), where the temperature must remain strictly constant until the phase transition is completed. 
+\\
+Furthermore, the extent of freezing point depression caused by adding a second component can be directly quantified from the temperature-composition phase diagram by measuring the vertical drop from the pure component's melting point to the liquidus boundary at a specific mole fraction.  Finally, the theoretical liquidus curves calculated in this study assume an ideal solution. This ideal model works exceptionally well for the naphthalene-biphenyl system because both molecules are non-polar aromatic hydrocarbons with comparable sizes and intermolecular forces. The ideal solution model would fail for systems exhibiting significant disparities in molecular volume, or those with strong specific intermolecular interactions (such as hydrogen bonding or dipole-dipole forces), which would cause the activity coefficients to deviate substantially from unity.
+\\
+The experiment successfully demonstrated how cooling curves of binary mixtures can be analyzed to obtain thermodynamic quantities and construct a phase diagram.  The linear relationship between $\ln x_i$ and $1/T$ observed in Figure~\ref{fig:lnx} confirms the validity of the Equation 2 for this nearly ideal system.  The melts contained no visible impurities, and the observed supercooling was small compared with the total temperature span of the phase diagram.
+\\
+The measured heats of fusion were slightly larger than the literature values\cite{gallus2001binary}.  One source of error is the determination of the break (liquidus) temperature.  Although the three‑segment fitting method provides a quantitative way to locate the slope change, the boundaries of the fitting windows were selected manually and could shift the resulting intersection point by a few seconds, leading to an uncertainty in $T_{\mathrm{liq}}$.  Because the enthalpy of fusion is proportional to the slope of the fit, such temperature uncertainties propagate into $\Delta H$.  The biphenyl fit uses only two data points, so no statistical uncertainty can be estimated.  Future experiments should include at least three mixtures in each branch to over‑determine the regression.
+\\
+Another global source of error originated from the apparatus setup in the experiment. Firstly, the Logger Pro temperature probe is placed at the bottom of the test tube, in contact with the glass wall. The temperature in the water bath could influence the measured temperature, deviating it from the temperature of the mixture. Secondly, the reagents ran out during the experiment and two different batches were used. It could introduce unwanted impurities in the mixture and changed its physical properties.
+\\
+The eutectic temperature measured directly from the arrest plateaus agrees well with literature values with a small error.  The calculated eutectic composition from Eq.~\ref{eq:eutectic} also matches literature within a few percent.  Because the eutectic arrest occurs over a short temperature interval, it is easier to identify than the break temperature, leading to a more precise value for $T_E$.
+
+\section*{Conclusions}
+
+By analyzing cooling curves of pure naphthalene, pure biphenyl and three mixtures, the melting points and enthalpies of fusion of both components were determined and the eutectic composition of the naphthalene–biphenyl system was estimated.  The key findings are summarized below:
+
+\begin{enumerate}
+  \item \textbf{Melting points:} $T_A^{\circ} = 351.42\pm4.7\,\text{K}$ for naphthalene and $T_B^{\circ} = 341.3\,\text{K}$, within 0.6\,\% of literature values.
+  \item \textbf{Heats of fusion:} $\Delta H_A = 21.42\pm6.3\,\text{kJ\,mol}^{-1}$ and $\Delta H_B = 20.56\,\text{kJ\,mol}^{-1}$, about 5\,\% higher than literature values.
+  \item \textbf{Eutectic temperature:} $T_E \approx 311.8\pm0.80\,\text{K}$ and \textbf{eutectic composition:} $x_{B,E} = 0.5303\pm0.010$.  The experimental eutectic composition agrees with the reported value of 0.540.
+  \item \textbf{Phase diagram:} The experimental liquidus points lie close to the ideal curves calculated from the literature thermodynamic data, confirming that the naphthalene–biphenyl system behaves nearly ideally.
+\end{enumerate}
+
+Overall, the experiment illustrates the thermodynamic principles of solid–liquid equilibria and provides hands‑on experience with data analysis, error propagation and comparison with literature sources.  Improved accuracy could be achieved by automating the segmentation of cooling curves and by performing additional runs at intermediate compositions.
+
+\newpage
+% References section 
+% Must follow American Chemical Society (ACS) format. 
+\bibliographystyle{achemso} % Uses the ACS formatting style
+\bibliography{references} % Ensure you create a references.bib file in your directory
+
+\newpage
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+% Include supplementary material (raw output, sample calculations) 
+The raw data and corresponding analysis script are available on \href{https://github.com/EasonShi0624/26Spring-PChemLab/tree/main/Lab_1_Phase_Diagram_of_Two-Component_System}{\textcolor{RoyalBlue}{GitHub} \faGithub}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\linewidth, keepaspectratio, page=1]{Lab_computation.pdf}
+    \caption{Computations of Values and Error Analysis (Page 1)}
+    \label{fig:lab_comp_p1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth, keepaspectratio, page=2]{Lab_computation.pdf}
+    \caption{Computations of Values and Error Analysis (Page 2)}
+    \label{fig:lab_comp_p1}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth, keepaspectratio, page=3]{Lab_computation.pdf}
+    \caption{Computations of Values and Error Analysis (Page 3)}
+    \label{fig:lab_comp_p1}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth, keepaspectratio, page=4]{Lab_computation.pdf}
+    \caption{Computations of Values and Error Analysis (Page 4)}
+    \label{fig:lab_comp_p1}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth, keepaspectratio, page=5]{Lab_computation.pdf}
+    \caption{Computations of Values and Error Analysis (Page 5)}
+    \label{fig:lab_comp_p1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth, keepaspectratio, page=1]{lab_note.jpg}
+    \caption{Raw Lab Notes}
+    \label{fig:lab_notes}
+\end{figure}
+
+
+\end{document}
